@@ -1,11 +1,9 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-"""
-Created on Time : 2019/6/6 19:49
-Author  : tangyq
-
-"""
+# @Time    : 2020/1/14 14:46
+# @Author  : TYQ
+# @File    : vscmp.py
+# @Software: win10 python3
 
 import os
 import filecmp
