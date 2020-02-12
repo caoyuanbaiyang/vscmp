@@ -97,8 +97,8 @@ class vscmp(object):
                 self.mylog.info("差异二进制文件：{file}".format(file=left_file))
             else:
                 self.mylog.info("差异文本文件：{file}".format(file=left_file))
-                context = difflib.context_diff(left_lines, right_lines, dcmp.left, dcmp.right, n=self.cfg["COMPARE"]
-                ["context_diff.number"])
+                context = difflib.context_diff(left_lines, right_lines, dcmp.left, dcmp.right,
+                                               n=self.cfg["COMPARE"]["context_diff.number"])
                 for item in context:
                     self.mylog.info("  {}".format(item.rstrip("\n")))
                 html_context = difflib.HtmlDiff().make_file(left_lines, right_lines, left_file, right_file)

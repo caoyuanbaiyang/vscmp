@@ -6,9 +6,9 @@ COMPARE:
   dircmp.hide: []
   context_diff.number: 0
 
-  # left_dir: 'C:\Users\hp\Desktop\临时文件夹\vsconvert\上海模拟\tra\'
-  # right_dir: 'C:\Users\hp\Desktop\临时文件夹\vsconvert\深圳灾备\tra\'
-  left_dir: E:\临时文件夹\Tansible_bd
-  right_dir: E:\PycharmProjects\Tansible
+  left_dir: 'C:\Users\hp\Desktop\临时文件夹\vsconvert\上海模拟\tra\'
+  right_dir: 'C:\Users\hp\Desktop\临时文件夹\vsconvert\深圳灾备\tra\'
+  # left_dir: E:\临时文件夹\Tansible_bd
+  # right_dir: E:\PycharmProjects\Tansible
   result_dir_pre: rz
   ignore: ['.[clmsv]*', '*.result', 'info.*', '*.info','oradiag*','sunyardlog']
