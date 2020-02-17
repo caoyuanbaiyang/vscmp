@@ -2,10 +2,11 @@ PUBLIC:
   公共参数key: 公共参数value
 
 COMPARE:
+  # 内部参数配置
   dircmp.ignore: [.idea, __pycache__, build, dist, download, venv, syslog.log, config]
   dircmp.hide: []
   context_diff.number: 0
-
+  # 主要参数配置
   left_dir: 'C:\Users\hp\Desktop\临时文件夹\vsconvert\上海模拟\tra\'
   right_dir: 'C:\Users\hp\Desktop\临时文件夹\vsconvert\深圳灾备\tra\'
   # left_dir: E:\临时文件夹\Tansible_bd
