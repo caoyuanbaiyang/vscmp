@@ -7,6 +7,9 @@
 
 import os
 import filecmp
+
+import chardet
+
 from lib.readcfg import ReadCfg
 from lib.Logger import logger
 import difflib
@@ -26,15 +29,16 @@ def exclude_files(filename, excludes=[]):  # 是否属于不下载的文件判�
 
 
 def get_lines(file):
+    fbytes = min(32, os.path.getsize(file))
+    result = chardet.detect(open(file, 'rb').read(fbytes))
+    encoding = result['encoding']
     try:
-        with open(file, 'r', encoding='utf-8') as f:
-            return f.readlines()
+        with open(file, 'r', encoding=encoding, newline="") as f:
+            rtstr = f.readlines()
     except:
-        try:
-            with open(file, 'r', encoding='GBK') as f:
-                return f.readlines()
-        except:
-            return 'open failed'
+        rtstr = 'open failed'
+    finally:
+        return rtstr
 
 
 class vscmp(object):
@@ -79,10 +83,9 @@ class vscmp(object):
                 continue
 
             # 创建目录
-            tmp_dir = dcmp.left
-            tmp_dir = tmp_dir.replace(self.cfg["COMPARE"]["left_dir"], '')
-            if tmp_dir.startswith("\\"):
-                tmp_dir.lstrip("\\")
+            tmp_dir1 = dcmp.left.replace(self.cfg["COMPARE"]["left_dir"], '')
+            if tmp_dir1.startswith("\\"):
+                tmp_dir = tmp_dir1.lstrip("\\")
             rz_dir = os.path.join(self.rz_dir_pre, tmp_dir)
             try:
                 # self.mylog.info("创建目录：{}".format(rz_dir))
